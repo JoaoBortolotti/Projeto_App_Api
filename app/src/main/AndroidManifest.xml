@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplicativo_de_Cadastros">
 
-        <activity android:name=".ui.MainActivity"
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ListagemActivity" />
+        <activity android:name=".ui.EdicaoActivity" />
+        <activity android:name=".ui.CadastroActivity" />
     </application>
 
 </manifest>

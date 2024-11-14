@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonCadastro"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastro" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/fab_add_item" />
 
-    <Button
-        android:id="@+id/buttonListagem"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_item"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Listagem" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Add Item"
+        android:src="@android:drawable/ic_input_add" />
+</RelativeLayout>
 
-    <Button
-        android:id="@+id/buttonEditar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edição" />
-</LinearLayout>

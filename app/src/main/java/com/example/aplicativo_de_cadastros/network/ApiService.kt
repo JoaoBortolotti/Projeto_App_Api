@@ -1,6 +1,6 @@
 package com.example.aplicativo_de_cadastros.network
 
-import com.example.aplicativo_de_cadastros.model.Post
+import com.example.aplicativo_de_cadastros.models.Post
 import retrofit2.Call
 import retrofit2.http.*
 
