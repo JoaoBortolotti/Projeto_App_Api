@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aplicativo_de_cadastros">
 
+    <!-- Permissões de rede -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -13,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplicativo_de_Cadastros">
 
+        <!-- Atividade principal do aplicativo (MainActivity) -->
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,9 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ListagemActivity" />
-        <activity android:name=".ui.EdicaoActivity" />
-        <activity android:name=".ui.CadastroActivity" />
-    </application>
 
+        <!-- Atividade para adicionar um item (AddItemActivity) -->
+        <activity android:name=".AddItemActivity" />
+
+        <!-- Atividade para visualizar os detalhes de um item (ViewItemActivity) -->
+        <activity android:name=".ViewItemActivity" />
+
+        <!-- Atividade para editar um item existente (EditItemActivity) -->
+        <activity android:name=".EditItemActivity" />
+
+        <!-- Atividade para confirmação de exclusão (DeleteConfirmationActivity) -->
+        <activity android:name=".DeleteConfirmationActivity" />
+
+    </application>
 </manifest>

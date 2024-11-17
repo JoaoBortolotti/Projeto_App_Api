@@ -31,7 +31,8 @@ class DeleteConfirmationActivity : AppCompatActivity() {
                 val result = databaseHelper.deleteItem(itemId)
                 if (result > 0) {
                     Toast.makeText(this, "Item excluído com sucesso", Toast.LENGTH_SHORT).show()
-                    finish() // Volta para a tela anterior
+                    setResult(RESULT_OK) // Define o resultado como OK para indicar sucesso
+                    finish() // Fecha DeleteConfirmationActivity e retorna à ViewItemActivity
                 } else {
                     Toast.makeText(this, "Erro ao excluir item", Toast.LENGTH_SHORT).show()
                 }

@@ -1,16 +1,23 @@
 package com.example.aplicativo_de_cadastros.network
 
-import com.example.aplicativo_de_cadastros.models.Post
+import com.example.aplicativo_de_cadastros.models.Item
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
-    @GET("posts")
-    fun getPosts(): Call<List<Post>>
 
-    @POST("posts")
-    fun createPost(@Body post: Post): Call<Post>
+    // Exemplo de uma requisição GET para listar todos os itens
+    @GET("items")
+    fun getItems(): Call<List<Item>>
 
-    @PUT("posts/{id}")
-    fun updatePost(@Path("id") id: Int, @Body post: Post): Call<Post>
+    // Exemplo de uma requisição POST para adicionar um novo item
+    @POST("items")
+    fun addItem(@Body item: Item): Call<Item>
+
+    // Exemplo de uma requisição GET para buscar um item específico pelo ID
+    @GET("items/{id}")
+    fun getItemById(@Path("id") id: Int): Call<Item>
 }

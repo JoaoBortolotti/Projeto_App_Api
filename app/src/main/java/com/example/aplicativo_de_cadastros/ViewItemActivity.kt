@@ -17,6 +17,10 @@ class ViewItemActivity : AppCompatActivity() {
     private lateinit var buttonDelete: Button
     private var itemId: Int = -1
 
+    companion object {
+        private const val REQUEST_CODE_DELETE = 1001
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_item)
@@ -41,13 +45,13 @@ class ViewItemActivity : AppCompatActivity() {
         buttonDelete.setOnClickListener {
             val intent = Intent(this, DeleteConfirmationActivity::class.java)
             intent.putExtra("ITEM_ID", itemId)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_DELETE)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        loadItemDetails(itemId) // Recarregar os detalhes ao voltar para esta tela
+        loadItemDetails(itemId) // Recarrega os detalhes ao voltar para esta tela
     }
 
     private fun loadItemDetails(id: Int) {
@@ -55,6 +59,13 @@ class ViewItemActivity : AppCompatActivity() {
         if (item != null) {
             textViewName.text = item.name
             textViewDescription.text = item.description
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_DELETE && resultCode == RESULT_OK) {
+            finish() // Fecha a ViewItemActivity e retorna à MainActivity
         }
     }
 }
