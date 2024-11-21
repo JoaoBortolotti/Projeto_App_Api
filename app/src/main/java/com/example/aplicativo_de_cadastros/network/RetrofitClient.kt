@@ -1,20 +1,15 @@
 package com.example.aplicativo_de_cadastros.network
-
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
+    private const val BASE_URL = "https://673f5d63a9bc276ec4b84bf7.mockapi.io/"
 
-    private const val BASE_URL = "https://api.seuservidor.com/" // Substitua pelo URL da sua API
-
-    private val retrofit by lazy {
+    val instance: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
-
-    val apiService: ApiService by lazy {
-        retrofit.create(ApiService::class.java)
+            .create(ApiService::class.java)
     }
 }

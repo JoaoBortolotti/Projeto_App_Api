@@ -9,7 +9,7 @@ import com.example.aplicativo_de_cadastros.models.Item
 import com.example.aplicativo_de_cadastros.R
 
 class ItemAdapter(
-    private val items: List<Item>,
+    private val items: MutableList<Item>,
     private val onItemClicked: (Item) -> Unit
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
@@ -34,4 +34,11 @@ class ItemAdapter(
     }
 
     override fun getItemCount(): Int = items.size
+
+
+    fun updateItems(newItems: List<Item>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
 }
