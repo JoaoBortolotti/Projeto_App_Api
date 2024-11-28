@@ -38,6 +38,10 @@ class AddItemActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume(){
+
+    }
+
     private fun saveItem(item: Item) {
         RetrofitClient.instance.createItem(item).enqueue(object : Callback<Item> {
             override fun onResponse(call: Call<Item>, response: Response<Item>) {

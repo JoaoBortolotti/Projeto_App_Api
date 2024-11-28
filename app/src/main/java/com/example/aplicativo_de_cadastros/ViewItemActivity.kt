@@ -50,6 +50,13 @@ class ViewItemActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        itemId = intent.getIntExtra("ITEM_ID", -1)
+        loadItemDetails(itemId)
+    }
+
     private fun loadItemDetails(id: Int) {
         RetrofitClient.instance.getItemById(id.toString()).enqueue(object : Callback<Item> {
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
